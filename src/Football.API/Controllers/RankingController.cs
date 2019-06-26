@@ -21,19 +21,7 @@ namespace Football.API.Controllers
         {
             _rankingHandler = rankingHandler;
         }
-
-
-        // GET api/<controller>/5
-        //[HttpGet("{competitionId}")]
-        //public async Task<IActionResult> Get(int competitionId)
-        //{
-        //    var result = await _rankingHandler.GetRanking(new CompetionRankingCommand(competitionId));
-        //    if (result.IsSuccess)
-        //        return ResponseSuccess(result.Success);
-
-        //    return ResponseError(new string[] { result.Error });
-        //}
-
+        
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {

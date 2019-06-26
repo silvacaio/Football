@@ -11,17 +11,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{B1544F57-1969-4166-B06E-15A86A65CAF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Domain.Core", "src\Football.Domain.Core\Football.Domain.Core.csproj", "{361E64A0-C17D-40DB-B2C3-09F94CB501D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Football.Domain.Core", "src\Football.Domain.Core\Football.Domain.Core.csproj", "{361E64A0-C17D-40DB-B2C3-09F94CB501D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Domain", "src\Football.Domain\Football.Domain.csproj", "{F7A8493B-02E7-45A7-9593-15CF002D2914}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Football.Domain", "src\Football.Domain\Football.Domain.csproj", "{F7A8493B-02E7-45A7-9593-15CF002D2914}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.API", "src\Football.API\Football.API.csproj", "{1CCB50F3-1454-4DC6-AEFA-C8E448337BAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Football.API", "src\Football.API\Football.API.csproj", "{1CCB50F3-1454-4DC6-AEFA-C8E448337BAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.1 - Data", "3.1 - Data", "{E1853319-EAE6-4150-9BE3-798830F56418}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-2 - CrossCutting", "3-2 - CrossCutting", "{CDD770AD-6824-4F02-A902-74066646F58A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Infra.CrossCutting.IoC", "src\Football.Infra.CrossCutting\Football.Infra.CrossCutting.IoC.csproj", "{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Football.Infra.CrossCutting.IoC", "src\Football.Infra.CrossCutting\Football.Infra.CrossCutting.IoC.csproj", "{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Football.Domain.Test", "test\Football.Domain.Test\Football.Domain.Test.csproj", "{8D3D4E67-64DD-4037-A2D2-2199E23CF25D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D3D4E67-64DD-4037-A2D2-2199E23CF25D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D3D4E67-64DD-4037-A2D2-2199E23CF25D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D3D4E67-64DD-4037-A2D2-2199E23CF25D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D3D4E67-64DD-4037-A2D2-2199E23CF25D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,6 +62,7 @@ Global
 		{E1853319-EAE6-4150-9BE3-798830F56418} = {B063B1EA-C2EC-49CA-89D2-470696B34ED1}
 		{CDD770AD-6824-4F02-A902-74066646F58A} = {B063B1EA-C2EC-49CA-89D2-470696B34ED1}
 		{C5F69FE2-F2B5-4E0F-A5BD-9630F714C88E} = {CDD770AD-6824-4F02-A902-74066646F58A}
+		{8D3D4E67-64DD-4037-A2D2-2199E23CF25D} = {B1544F57-1969-4166-B06E-15A86A65CAF1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {15AC9922-3929-47F0-BC22-434E7280025D}
