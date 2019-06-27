@@ -1,0 +1,29 @@
+<div class="ranking-content">
+  <div class="data-ranking">
+
+  </div>
+  <div class="ranking">
+    <table>
+      <thead>
+        <tr>
+          <td>Posição</td>
+          <td>Time</td>
+          <td>Pontos</td>
+          <td>Vitórias</td>
+          <td>Empates</td>
+          <td>Derrotas</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let team of ranking">
+          <td>{{team.posicao}}</td>
+          <td>{{team.nome}}</td>
+          <td>{{team.ponts}}</td>
+          <td>{{team.vitorias}}</td>
+          <td>{{team.empates}}</td>
+          <td>{{team.derrotas}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
