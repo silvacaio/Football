@@ -4,6 +4,15 @@ using System.Net;
 
 namespace Football.Domain.Core.Request
 {
+
+    #region Interfaces
+   
+    public interface IStreamReaderFactory
+    {
+       // StreamReader reader { get; }
+        StreamReader Create(System.IO.Stream stream);
+    }      
+
     public interface IHttpWebRequest
     {
         string Method { get; set; }
@@ -21,6 +30,16 @@ namespace Football.Domain.Core.Request
     {
         IHttpWebRequest Create(string uri);
     }
+
+    #endregion
+
+    public class StreamReaderFactory : IStreamReaderFactory
+    {
+        public StreamReader Create(System.IO.Stream stream)
+        {
+            return new StreamReader(stream);
+        }
+    }    
 
     public class HttpWebRequestFactory : IHttpWebRequestFactory
     {

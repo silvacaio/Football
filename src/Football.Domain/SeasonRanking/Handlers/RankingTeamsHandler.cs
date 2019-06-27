@@ -1,4 +1,5 @@
-﻿using Football.Domain.Core.Request;
+﻿using Football.Domain.Core.Deserialize;
+using Football.Domain.Core.Request;
 using Football.Domain.Core.Results;
 using Football.Domain.SeasonRanking.Commands;
 using Football.Domain.SeasonRanking.Handlers.Interfaces;
@@ -13,10 +14,14 @@ namespace Football.Domain.SeasonRanking.Handlers
     public class RankingTeamsHandler : IRankingTeamsHandler
     {
         private readonly IHttpWebRequestFactory _webRequestFactory;
+        private readonly IStreamReaderFactory _streamFactory;
+        private readonly IDeserializeToObject<Ranking> _deserealize;
 
-        public RankingTeamsHandler(IHttpWebRequestFactory webRequestFactory)
+        public RankingTeamsHandler(IHttpWebRequestFactory webRequestFactory, IStreamReaderFactory streamFactory, IDeserializeToObject<Ranking> deserealize)
         {
             _webRequestFactory = webRequestFactory;
+            _streamFactory = streamFactory;
+            _deserealize = deserealize;
         }
 
         public Result<Ranking> GetRanking(CompetionRankingCommand command)
@@ -26,14 +31,19 @@ namespace Football.Domain.SeasonRanking.Handlers
                 if (command.Invalid())
                     return "Parâmetros inválidos";
 
-                var request = _webRequestFactory.Create(string.Format(command.FootballURL, command.CompetitionId)) as IHttpWebRequest;
-                request.Method = "GET";                
+                var request = _webRequestFactory.Create(string.Format(command.FootballURL, command.CompetitionId));
+                request.Method = "GET";
                 request.Headers.Add("X-Auth-Token", command.Token);
 
+
                 using (var response = request.GetResponse())
-                using (var streamReader = new StreamReader(response.GetResponseStream()))
+                using (var streamReader = _streamFactory.Create(response.GetResponseStream()))
                 {
-                    var result = JsonConvert.DeserializeObject<Ranking>(streamReader.ReadToEnd());
+
+                    var result = _deserealize.Deserialize(streamReader.ReadToEnd());
+                    if (result == null)
+                        return "Competição não encontrada";
+
                     return result;
                 }
 
@@ -41,7 +51,7 @@ namespace Football.Domain.SeasonRanking.Handlers
             catch (WebException ex)
             {
                 if (ex.Response == null)
-                    throw ex;
+                    return ex.Message;
 
                 using (var stream = ex.Response.GetResponseStream())
                 using (var reader = new StreamReader(stream))
