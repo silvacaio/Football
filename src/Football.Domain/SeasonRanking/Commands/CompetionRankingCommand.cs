@@ -16,7 +16,7 @@ namespace Football.Domain.SeasonRanking.Commands
         public string FootballURL { get; private set; }
         public string Token { get; private set; }
 
-        internal bool Invalid() =>
+        public bool Invalid() =>
            CompetitionId <= 0 || string.IsNullOrWhiteSpace(FootballURL) || string.IsNullOrWhiteSpace(Token);
     }
 }

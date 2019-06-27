@@ -17,4 +17,8 @@
     <ProjectReference Include="..\..\src\Football.Domain\Football.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SeasonRanking\Commands\" />
+  </ItemGroup>
+
 </Project>
